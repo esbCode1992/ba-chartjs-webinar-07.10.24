@@ -22,6 +22,6 @@
 
 ### NOT: 
   - React projesini çalıştırmak için sisteminizde node.js kurulu olmalıdır.
-  - React Projesini başlatmak için terminale "npm i" yazıp gerekli modüllerin kurulumu tamamlandıktan sonra "npm run dev yazılarak taslak projeyi başlatabilirsin.. :)
+  - React Projesini başlatmak için terminale "npm i" yazıp gerekli modüllerin kurulumu tamamlandıktan sonra yine terminale "npm run dev" yazılarak taslak projeyi başlatabilirsin.. :)
   
 

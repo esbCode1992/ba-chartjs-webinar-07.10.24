@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  text-align: center;
+  background: #1C1C1C;
+  color: #c2c2c2;
+}
+.container{
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.main{
+  width: 100%;
+  margin-bottom: 60px;
+}
+.income,.expense{
+
+  width: 50%;
+}

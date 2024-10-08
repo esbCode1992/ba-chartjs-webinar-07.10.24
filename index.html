@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartJS Intro</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="myFirstChart"></canvas>
+    </div>
+    <div>
+        <canvas id="mySecondChart"></canvas>
+    </div>
+    <div>
+        <canvas id="myThirdChart"></canvas>
+    </div>
+
+    <!-- ChartJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const firstChart =  document.getElementById("myFirstChart");
+        // console.log(firstChart);
+        new Chart(firstChart, {
+            type: "bar",
+            data:{
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 35, 50, 20, 30],
+                    borderWidth: 2,
+                    borderColor: "black",
+                    backgroundColor: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+                }]
+            },
+            options:{
+                scales: {
+                  y: {
+                    beginAtZero: false
+                  }
+                }
+            }
+        });
+
+        const secondChart =  document.getElementById("mySecondChart");
+        const dataset_01 = [
+            {year:2010,count:10},
+            {year:2011,count:40},
+            {year:2012,count:70},
+            {year:2013,count:30},
+            {year:2014,count:15},
+            {year:2015,count:88}
+        ];
+        new Chart(secondChart,{
+            // type: "line",
+            // type: "pie",
+            // type: "doughnut",
+            // type: "bar",
+            data: {
+                labels: dataset_01.map(item=>item.year),
+                datasets: [{
+                    type:"line",
+                    label: "Acquasitions by year",
+                    data: dataset_01.map(item=>item.count),
+                    borderWidth: 1,
+                    borderColor: "red",
+                    backgroundColor: "rgba(255,0,0,0.3)"
+                },
+                {
+                    type:"line",
+                    label: "Acquasitions by year_2",
+                    data: [10,20,30,40,50,60],
+                    borderWidth: 1,
+                    borderColor: "green",
+                    backgroundColor: "rgba(0,255,0,0.3)",
+                    borderRadius: "8"
+                },
+                {
+                    type:"bar",
+                    label: "Acquasitions by year_3",
+                    data: dataset_01.map(item=>item.count),
+                    borderWidth: 1,
+                    borderColor: "blue",
+                    backgroundColor: "rgba(0,0,255,0.3)",
+                    borderRadius: "5"
+                }
+                ]
+            },
+            options: {
+                // animation: false,
+                animation:{
+                    duration: 1000,
+                    // easing: "linear"
+                    easing: "easeInOutBounce"
+                },
+                hover:{
+                    mode:"nearest",
+                    intersect: true,
+                    animationDuration: 1000
+                },
+                plugins:{
+                    legend:{
+                        // display: false
+                    },
+                    tooltip:{
+                        // enabled:false
+                    }
+                }
+            }
+        });
+
+        const thirdChart =  document.getElementById("myThirdChart").getContext('2d');
+        const image = new Image();
+        image.src = "https://cdn.pixabay.com/photo/2020/12/12/13/15/leaves-5825458_1280.jpg"
+        const image1 = new Image();
+        image1.src = "https://cdn.pixabay.com/photo/2019/05/18/13/34/twigs-4211837_1280.jpg"
+        const image2 = new Image();
+        image2.src = "https://cdn.pixabay.com/photo/2021/08/25/12/29/nature-6573288_960_720.png"
+        const fillPattern = thirdChart.createPattern(image,"repeat");
+        const fillPattern1 = thirdChart.createPattern(image1,"repeat");
+        const fillPattern2 = thirdChart.createPattern(image2,"repeat");
+        new Chart(thirdChart,{
+            type:"pie",
+            type:"bar",
+            data:{
+                labels:["nike","adidas","puma"],
+                datasets:[
+                    {
+                        label:"PT01",
+                        data:[2,4,6],
+                        borderWidth: 1,
+                        borderColor: "red",
+                        // backgroundColor: [fillPattern,fillPattern1,fillPattern2]
+                        backgroundColor: fillPattern
+                    },
+                    {
+                        label:"PT02",
+                        data:[4,8,16],
+                        borderWidth: 1,
+                        borderColor: "red",
+                        backgroundColor: fillPattern1
+                    },
+                    {
+                        label:"PT03",
+                        data:[3,6,9],
+                        borderWidth: 1,
+                        borderColor: "red",
+                        backgroundColor: fillPattern2
+                    },
+                ]
+            },
+            options:{
+                scales:{
+                    x:{
+                        grid: {
+                            // display:false
+                            color: "rgba(0,0,255,0.2)"
+                        }
+                    },
+                    y:{
+                        grid: {
+                            display:true,
+                            color: "rgba(0,0,255,0.4)"
+                        },
+                        min:0,
+                        max:30,
+                        ticks: {
+                            stepSize: 8
+                        }
+
+                    }
+                }
+            }
+
+        })
+
+    </script>
+</body>
+</html>

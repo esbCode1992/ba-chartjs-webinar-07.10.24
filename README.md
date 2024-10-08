@@ -20,7 +20,8 @@
     <img src="ss/ss04.JPG" width="700" alt="ss"/>
   </p>
 
-###NOT: React projesini çalıştırmak için sisteminizde node.js kurulu olmalıdır.
+### NOT: 
+  -React projesini çalıştırmak için sisteminizde node.js kurulu olmalıdır.
   -React Projesini başlatmak için terminale "npm i" yazıp gerekli modüllerin kurulumu tamamlandıktan sonra "npm run dev yazılarak taslak projeyi başlatabilirsin.. :)
   
 
